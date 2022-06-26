@@ -16,7 +16,7 @@ public class Homework02 extends Application {
          *  int num1 = Integer.parseInt(str1);
          *  System.out.println(str1);
          */
-        System.out.println("================本章联系01===============");
+        System.out.println("================本章练习01===============");
         int n1 = 13;
         int n2 = 17;
         int n3 = n1 + n2;
@@ -24,7 +24,7 @@ public class Homework02 extends Application {
         int n4 = 38;
         int n5 = n4 - n3;
         System.out.println(n5);
-        System.out.println("==============本章联系02==============");
+        System.out.println("==============本章练习02==============");
         char c1 = '\t';
         char c2 = '\r';
         char c3 = '\\';
@@ -33,7 +33,7 @@ public class Homework02 extends Application {
         System.out.println(c2);
         System.out.println(c3);
         System.out.println(c4);
-        System.out.println("=============本章联系03=================");
+        System.out.println("=============本章练习03=================");
         String book1 = "Java程序设计";
         String book2 = "C#程序设计";
         System.out.println(book1+book2);
@@ -43,7 +43,7 @@ public class Homework02 extends Application {
         double price1 = 128.6;
         double price2 = 114.5;
         System.out.println(price1+price2);
-        System.out.println("=============本章联系04===================");
+        System.out.println("=============本章练习04===================");
         String name = "冷志真";
         int age = 22;
         char sex3 = '男';
@@ -56,7 +56,7 @@ public class Homework02 extends Application {
 
     }
 }
-
+//==========================================================算数运算符的使用===============================================
     class ArithmeticOperator{
 
         public static void main(String[] args) {
@@ -114,6 +114,7 @@ public class Homework02 extends Application {
         }
 
     }
+   //=========================================================关系运算符的使用================================================
     class relationOperator{
         public static void main(String[] args) {
            int a = 7;
@@ -130,6 +131,7 @@ public class Homework02 extends Application {
 
 
     }
+    //=========================================================逻辑运算符的使用=====================================================
     class LogicOperator{
         public static void main(String[] args){
             System.out.println("========短路&&使用=======");
@@ -173,6 +175,7 @@ public class Homework02 extends Application {
         }
 
     }
+
 class LogicOperator02{
     public static void main(String[] args){
         System.out.println("========短路||使用=======");
@@ -228,13 +231,13 @@ class LogicOperator02{
     }
 
 }
-
+//==========================================逻辑非与逻辑异或的使用=================================================
 class InverseOperator{
     public static void main(String[] args){
         System.out.println("==========逻辑非!的使用:取反============");
         System.out.println(80<90);
         System.out.println(!(80<90));
-        System.out.println("==========逻辑非^的使用:两边结果不同时为True否则为False");
+        System.out.println("==========逻辑异或^的使用:两边结果不同时为True否则为False");
         boolean a = (10 > 20) ^ (10 < 20);
         boolean b = (20 > 30) ^ (10 > 20);
         boolean c = (10 < 20) ^ (20 < 30);
@@ -244,7 +247,7 @@ class InverseOperator{
 
     }
 }
-
+//================================================赋值运算符的使用===========================================
     class AssignOperator{
         public static void main(String[] args){
             int a = 10;
@@ -262,6 +265,7 @@ class InverseOperator{
 
 
     }
+    //=========================================================三元运算符的使用=================================================
     class  TernaryOperator{
 
         public static void main(String[] args){
@@ -281,12 +285,6 @@ class InverseOperator{
             System.out.println("================一条语句实现=================");
             int result4 = (c > d ? c:d) > e ? (c > d ? c:d) : e;
             System.out.println("最大数为："+result4);
-
-
-
-
-
-
 
         }
     }
