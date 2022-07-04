@@ -327,3 +327,121 @@ class Star{
         }
     }
 }
+
+class break01{
+    public static void main(String[] args){
+        int count = 0;
+        for(;  ; ){
+            System.out.println((int)(Math.random()*100+1));
+            if ((int)(Math.random()*100+1) == 97){
+                System.out.println("找到97啦");
+                break;
+            }else {
+                count++;
+            }
+        }
+        System.out.println("第"+count+"次找到97");
+    }
+}
+
+class break02{
+    public static void main(String[] args){
+        for (int i = 0 ; i < 10 ; i++){
+            if(i == 3){
+                break;
+            }
+            System.out.println("i = "+i);
+        }
+        System.out.println("中止for循环，继续执行程序");
+    }
+}
+
+class label{
+    public static void main(String[] args){
+        /**
+         * 1.break语句中出现多层嵌套语句块时，可以通过标签指明中止哪一层语句块
+         * 2.标签的基本使用
+         * label1：{
+         *     label2：{
+         *        label3：{
+         *              break label3;
+         *              }
+         *              }
+         *           }
+         * 1).break语句可以指定退出那层
+         * 2).label1是标签，名字由程序员定
+         * 3).break后指定到哪个label就退出到哪里
+         * 4).在实际开发中尽量不要使用标签
+         * 5).如果没有指定的break，默认退出最近的循环体就好
+         */
+        label1:
+        for (int i = 0 ; i < 4 ; i++){
+            label2:
+            for (int j = 0 ; j < 10 ; j++){
+                if(j == 2){
+                    break label2;
+                }
+                System.out.println("j = "+j);
+            }
+        }
+    }
+}
+
+class break03{
+    public static void main(String[] args){
+        /**
+         * 1-100内的数求和，求出当求出的和第一次大于20的当前数
+         *
+         * 思路分析：
+         * 1.循环1-100，求和sum
+         * 2.当sum>20时记录下当前数
+         * 3.也可以写在外面在外部定义一个变量满足条件时赋值
+         */
+        int n = 0;
+        int sum = 0;
+        for (int i = 1 ; i <= 100 ; i++){
+            sum += i;
+            if(sum > 20){
+                System.out.println("和>20的时候当前数为："+i);
+                n = i;
+                break;
+            }
+        }
+        System.out.println("和>20的时候当前数为："+n);
+    }
+}
+
+class break04{
+    public static void main(String[] args){
+        /**
+         * 实现登录验证，有三次机会，如果用户名为丁真，密码为666，提示登陆成功，否则提示还有几次机会
+         *
+         * 思路分析：
+         * 1.创建Scanner对象接收用户输入
+         * 2.定义String name;String password
+         * 3.最多循环3次[登录三次]，如果满足条件就提前退出
+         * 4.定义一个变量int chance记录还有几次登陆机会
+         */
+
+        Scanner scanner = new Scanner(System.in);
+        String name = "";
+        String passwd = "";
+        int chance = 3;//登陆一次减少一次
+        for (int i = 1 ; i <= 3 ; i++){
+            System.out.println("请输入名字：");
+            name = scanner.next();
+            System.out.println("请输入密码：");
+            passwd = scanner.next();
+            //比较名字和密码与内容是否相等
+            //字符串比较使用equal
+            if ("丁真".equals(name) && "666".equals(passwd)){
+                System.out.println("恭喜你登陆成功");
+                break;
+            }
+            //登录机会减少
+            chance--;
+            System.out.println("你还有"+chance+"次机会");
+
+        }
+    }
+}
