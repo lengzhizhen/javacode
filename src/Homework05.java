@@ -445,3 +445,189 @@ class break04{
         }
     }
 }
+
+class continue01{
+    public static void main(String[] args){
+        //break语句用于中止某个语句块的执行
+        //continue语句：用于结束本次循环，继续执行下一次循环
+        //当return用在方法，表示跳出方法，如果使用在main,表示退出程序
+        int i = 1;
+        while (i <= 4){
+            i++;
+            if(i == 2){
+                continue;
+            }
+            System.out.println("i="+i);
+        }
+    }
+}
+
+class continue02{
+    public static void main(String[] args){
+        label1:
+        for (int i = 0 ; i < 4 ; i++){
+            label2:
+            for (int j = 0 ; j < 10 ; j++){
+                if (j == 2){
+                    continue label1;
+                }
+                System.out.println("j = "+j);
+            }
+        }
+    }
+}
+
+class Homework1{
+    public static void main(String[] args){
+        /**
+         * 某人有100000元，每经过一次路口需要缴费，规则如下：
+         *1.当现金>50000时，每次交5%
+         * 2.当现金<=50000时，每次交1000
+         * 编程算该人可以经过多少次路口，使用while,break解决
+         *
+         * 思路分析：
+         * 1.定义一个double money保存100000
+         * 2.根据题的要求分析出来三种情况 money > 50000 , money >=  1000 && money <= 50000 ,money < 1000
+         * 3.使用多分支if_else if_else
+         * 4.while+break(money < 1000],同时使用一个变量count来保存通过的路口
+         */
+        double money = 100000;//剩余的钱
+        int count = 0;//累积过得路口
+        while (true){
+            if (money > 50000){
+                //money = money - money * 0.05;
+                money *= 0.95;//过了这个路口，还有这么多钱
+                count ++;
+            }else if (money >= 1000){
+                money -= 1000;
+                count ++;
+            }else { //钱不够
+                break;
+            }
+        }
+            System.out.println("100000可以过"+count+"路口");
+    }
+}
+
+class Homework2{
+    public static void main(String[] args){
+        //实现判断一个整数大于0，小于0，等于0
+        System.out.println("请输入一个整数:");
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        if (number > 0){
+            System.out.println("大于0");
+        }else if (number == 0){
+            System.out.println("等于0");
+        }else {
+            System.out.println("小于0");
+        }
+    }
+}
+
+class Homework3{
+    public static void main(String[] args){
+        /**
+         * 判断一个整数是否为水仙花数，水仙花数是指一个三位数，其各个位上数字的立方等于其本身
+         * 例如：153 = 1*1*1+3*3*3+5*5*5
+         *
+         * 思路分析：
+         * 1.比如 int n = 153;
+         * 2.先得到n的百位，十位，个位上的数
+         * 3.n的百位 = n/100;
+         * 4.n的十位 = n%100/10
+         * 5.n的个位 = n%10
+         * 6.判断即可
+         */
+//        int n = 153;
+//        int n1 = n / 100;
+//        int n2 = n % 100 / 10;
+//        int n3 = n % 10;
+//        if(n1 * n1 * n1 + n2 * n2 * n2 + n3 * n3 * n3 == n){
+//            System.out.println("是水仙花数");
+//        }else {
+//            System.out.println("不是水仙花数");
+//        }
+        for (int n = 100 ; n < 1000 ; n++){
+            int n1 = n / 100;
+            int n2 = n % 100 / 10;
+            int n3 = n % 10;
+            if(n1 * n1 * n1 + n2 * n2 * n2 + n3 * n3 * n3 == n) {
+                System.out.println(n);
+            }
+        }
+    }
+}
+
+class Homework4{
+    public static void main(String[] args){
+        //输出1-100之间不能被5整除的数，每5个一行
+        int count = 0;
+        for (int i = 1 ; i <= 100 ; i++){
+            if (i % 5 != 0){
+                count++;
+                System.out.print(i + "\t");
+                if (count % 5 == 0){
+                    System.out.println("\r");
+                }
+            }
+        }
+    }
+}
+
+class Homework5{
+    public static void main(String[] args){
+        //输出小写的a-z以及大写的Z-A
+        for(char c1 = 'a' ; c1 <= 'z' ; c1++){
+            System.out.print(c1+" ");
+        }
+        System.out.println("\r");
+        for (char c2 = 'Z' ; c2 >= 'A' ; c2--){
+            System.out.print(c2 + " ");
+        }
+    }
+}
+
+class Homework6{
+    public static void main(String[] args){
+        /**
+         * 求出1-2/1+1/3-1/4...1/100的和
+         *
+         * 分析：
+         * 1.一共有100个数，分子为1，分母为从1-100
+         * 2.当分母为奇数时，前面是+，当分母为偶数时，前面是-
+         * 3.把累计的结果放在double sum
+         * 4.这里有一个隐藏的条件，把公式分子1写成1.0才能精确到小数，要不然除了第一个数是1后面的数相除全是0
+         */
+        double sum = 0;
+        for (int i = 1 ; i <= 100 ; i++){
+            //判断是奇数还是偶数，做不同的处理
+            if (i % 2 != 0){//分母为奇数
+                sum += 1.0/i;
+            }else {//分母为偶数
+                sum -= 1.0/i;
+            }
+        }
+        System.out.println("sum="+sum);
+    }
+}
+
+class Homework7{
+    public static void main(String[] args){
+        /**
+         * 求1+(1+2)+(1+2+3)+(1+2+3+4)+...(1+2+3+...+100)
+         *
+         * 分析:
+         * 1.一共有100项相加
+         * 2.每一项数字逐渐相加
+         */
+        int sum = 0;
+        for (int i = 1 ; i <= 100 ; i++) {//i可以表示是第几项，同时也是当前项的最后一个数字
+            for (int j = 1; j <= i; j++) {//内层对1-i进行循环
+                sum += j;
+            }
+        }
+        System.out.println("sum="+sum);
+        }
+
+    }
