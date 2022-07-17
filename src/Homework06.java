@@ -397,7 +397,76 @@ class BubbleSort{
          *
          * 第四轮排序：目标把第四大的数放在倒数第四的位置：
          * 第1次比较[13,24,57,63,80]
+         *
+         * 以上冒泡排序特点：
+         *1.一共有五个元素进行了四轮排序，可以当做外层循环
+         * 2.每一轮排序可以确定一个数的位置，比如第一轮排序确定最大数
+         * 3.比较时，如果前面的数大雨后面的数就交换
+         * 4.每轮比较在减少4-->3-->2-->1
          */
 
+        int[] arr1 = new int[5];
+        int Len = arr1.length;
+        //创建一个新的数组
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("输入数组arr1");
+        //输入十个数保存到数组1
+        for (int i = 0 ; i < Len ; i++){
+            System.out.println("请输入"+(i+1)+"个数：");
+            arr1[i] = scanner.nextInt();
+        }
+        int temp = 0;
+        for (int i = 0 ; i < Len-1 ; i++){//外层控制多少轮
+            for (int j = 0 ; j < Len-1-i ; j++) {//内层控制每轮多少次
+                if (arr1[j] > arr1[j + 1]) {
+                    temp = arr1[j];
+                    arr1[j] = arr1[j + 1];
+                    arr1[j + 1] = temp;
+                }
+            }
+            System.out.println("\n===第"+(i+1)+"轮===");
+            for (int j = 0 ; j < Len ; j++){
+                System.out.print(arr1[j]+" ");
+            }
+        }
+
+
+
+
     }   
+}
+
+//顺序查找
+class SeqSearch{
+    public static void main(String[] args) {
+        String[] arr1 = new String[5];
+        //创建一个新的数组
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("输入数组arr1");
+        //输入十个数保存到数组
+        for (int i = 0 ; i < arr1.length ; i++){
+            System.out.println("请输入"+(i+1)+"个数：");
+            arr1[i] = scanner.next();
+        }
+        for (int i = 0 ; i < arr1.length ; i++){
+            System.out.print(arr1[i]+"\t");
+
+        }
+        System.out.println("\n");
+        System.out.println("请输入需要查找的内容");
+        String findName = scanner.next();
+        int index = -1;//定义一个索引，如果满足条件进入到for循环值会改变
+        for (int i = 0 ; i < arr1.length ; i++){
+            if (arr1[i].equals(findName)){
+                System.out.println("恭喜你找到了");
+                System.out.println("下标为："+i);
+                index = i;
+                break;
+            }
+        }
+        if (index == -1){
+            System.out.println("没有找到");
+        }
+
+    }
 }
